@@ -1,0 +1,58 @@
+{
+  "status": "partial",
+  "file_format": {
+    "magic": "lbts",
+    "header_size": 16,
+    "declared_count": 1280
+  },
+  "crypto": {
+    "algorithm": "ChaCha20-Poly1305",
+    "sigma_offset": "0x005180",
+    "aad_prefix": "SSv2",
+    "tag_size": 16,
+    "counter_start": 1
+  },
+  "key_derivation": {
+    "function": "0x3dfc0c",
+    "hkdf_info_labels": [
+      "9082a3012e58b6a4cb330e73f495c4e9d842b4411e1ff4dfae982f8a4291443771cffbc0b5a5dbb5e95bc25639f111f159a4823f92d55e1cab98aa07d8015b8312be853124c37d0c55745dbe72feb1de80a706dc9b74f19bc1c1699be48647beefc69dc10fcca10c246f2ce92daa84744adca9b05cda88f97652513e986dc631a8c82703b0c77f59bff30be0c64791a7d55163ca0667292914850ab72738211b2efc6d2c4d130d385354730a65bb0a6a762ec9c281852c7292a1e8bfa24b661aa8708b4bc2a3516cc719e892d1240699d685350ef470a06a1016c1a419086c371e4c774827b5bcb034b30c1c394aaad84e4fca9c5bf36f2e68ee828f746f63a5781478c8840802c78cfaffbe90eb6c50a4f7a3f9bef27871c6657870616e642033322d62797465206b",
+      "330e73f495c4e9d842b4411e1ff4dfae982f8a4291443771cffbc0b5a5dbb5e95bc25639f111f159a4823f92d55e1cab98aa07d8015b8312be853124c37d0c55745dbe72feb1de80a706dc9b74f19bc1c1699be48647beefc69dc10fcca10c246f2ce92daa84744adca9b05cda88f97652513e986dc631a8c82703b0c77f59bff30be0c64791a7d55163ca0667292914850ab72738211b2efc6d2c4d130d385354730a65bb0a6a762ec9c281852c7292a1e8bfa24b661aa8708b4bc2a3516cc719e892d1240699d685350ef470a06a1016c1a419086c371e4c774827b5bcb034b30c1c394aaad84e4fca9c5bf36f2e68ee828f746f63a5781478c8840802c78cfaffbe90eb6c50a4f7a3f9bef27871c6657870616e642033322d62797465206b",
+      "c4e9d842b4411e1ff4dfae982f8a4291443771cffbc0b5a5dbb5e95bc25639f111f159a4823f92d55e1cab98aa07d8015b8312be853124c37d0c55745dbe72feb1de80a706dc9b74f19bc1c1699be48647beefc69dc10fcca10c246f2ce92daa84744adca9b05cda88f97652513e986dc631a8c82703b0c77f59bff30be0c64791a7d55163ca0667292914850ab72738211b2efc6d2c4d130d385354730a65bb0a6a762ec9c281852c7292a1e8bfa24b661aa8708b4bc2a3516cc719e892d1240699d685350ef470a06a1016c1a419086c371e4c774827b5bcb034b30c1c394aaad84e4fca9c5bf36f2e68ee828f746f63a5781478c8840802c78cfaffbe90eb6c50a4f7a3f9bef27871c6657870616e642033322d62797465206b"
+    ],
+    "hardcoded_constants": [
+      "0xdad5360730d7d0c3",
+      "0x5410ed959712631c",
+      "0x71712f9970aeba97"
+    ]
+  },
+  "known_strings": {
+    "157": "UTF-8",
+    "158": "",
+    "159": "",
+    "160": "SecurePreferences",
+    "161": "UTF-8",
+    "162": "Unable to create String from decrypted value",
+    "163": "decrypt Unable to decrypt value",
+    "164": "SecurePreferences.decrypt Base64.decode fail",
+    "166": "fldsjfodasjifudslfjdsaofshaufihadsf",
+    "167": "SHA-256",
+    "168": "UTF-8",
+    "169": "AES/CBC/PKCS5Padding",
+    "170": "UTF-8",
+    "171": "UTF-8",
+    "172": "UTF-8"
+  },
+  "native_functions": {
+    "table_loader": "0x3db348",
+    "key_setup": "0x3dfc0c",
+    "stream_cipher": "0x3dae0c",
+    "aead_tag": "0x452f10",
+    "table_lookup": "0x4534b0",
+    "jni_decoder": "0x171508"
+  },
+  "bss_globals": {
+    "string_count": "0x5f4430",
+    "string_table": "0x5f4438",
+    "table_capacity": "0x5f4428"
+  }
+}

@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+*.apk
+apktool_out/
+decompiled/
+jadx_out/
+reverse_inventory.py
