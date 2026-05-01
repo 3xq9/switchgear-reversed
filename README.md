@@ -6,6 +6,8 @@ Utility scripts for inspecting `com.rldv1.switchgear` (v67).
 - `hooks/`: Frida scripts for runtime key/string extraction.
 - `tools/`: Python scripts for offline decryption and CSV parsing.
 - `output/`: Processed data (JSON/TXT).
+- `logic/`: Decoded game data (CSVs).
+- `assets/`: App fingerprints and config.
 
 ## Usage
 1. **Keys**: Capture runtime keys using `frida -U -f com.rldv1.switchgear -l hooks/hook_string_loader.js`.
