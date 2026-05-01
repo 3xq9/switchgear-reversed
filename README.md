@@ -1,22 +1,36 @@
 # switchgear-v67-rev
 
-Utility scripts for inspecting `com.rldv1.switchgear` (v67).
+Technical documentation and research for inspecting `com.rldv1.switchgear` (v67).
 
 ## Layout
 - `hooks/`: Frida scripts for runtime key/string extraction.
-- `tools/`: Python scripts for offline decryption and CSV parsing.
+- `tools/`: Python scripts for offline decryption and binary analysis.
 - `output/`: Processed data (JSON/TXT).
-- `logic/`: Decoded game data (CSVs).
-- `assets/`: App fingerprints and config.
+- `apktool_out/`: Decompiled Smali and resources.
 
-## Usage
-1. **Keys**: Capture runtime keys using `frida -U -f com.rldv1.switchgear -l hooks/hook_string_loader.js`.
-2. **Decrypt**: Run `python tools/lbts_decrypt.py` (requires keys).
-3. **Extract**: Run `python tools/extract_all.py` to rebuild gameplay stats.
+## Technical Audit (Switchgear Internals)
 
-## Data
-Results are stored in `output/`.
-- `v67_extracted_data.json`: Comprehensive brawler and projectile data.
-- `string_xrefs.json`: Mapping of native string indices to Java/Smali calls.
+### 1. Component Mapping
+- **libkk.so (10.7 MB)**: Main Mod Engine. Handles Mod Menu rendering and function hooking. Contains the "switchgear" identity.
+- **libsentry-android.so (6.2 MB)**: Security & Decryption Proxy. Heavily obfuscated (MBA/Flattening). Contains the String Table Resolver.
+- **assets/kogcpfofggee.dat**: Encrypted master string table (ChaCha20-Poly1305, SSv2 prefix).
 
-*Note: Large binaries and decompiled folders are excluded.*
+### 2. Native Offsets (ARM64)
+| Offset | Target | Purpose |
+|--------|--------|---------|
+| `0x171508` | Resolver | String lookup by ID `(I)Ljava/lang/String;` |
+| `0x3db348` | Init | Native string table population |
+| `0x39c0` | Binding | JNINativeMethod array |
+| `0xf485a` | Crypto | ChaCha20 constants in libkk.so |
+
+### 3. Security & Anti-Detection
+- **Root Detection**: Combined Smali (`RootChecker`) and Native (`v.d()`) validation.
+- **Tool Detection**: Scans `/proc/self/maps` and uses `strstr` to detect "frida" or "gum-js".
+- **Obfuscation**: LLVM-Obfuscator is used to hide logic in `libsentry-android.so`.
+
+### 4. Known Data Points
+- **Salt/Key material**: `fldsjfodasjifudslfjdsaofshaufihadsf`
+- **Key IDs**: 157 (UTF-8), 160 (SecurePreferences), 167 (SHA-256).
+- **Persistence**: License and settings stored in `SecurePreferences` (XML).
+
+*Note: Large binaries and decompiled folders are excluded from version control.*

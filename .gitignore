@@ -1,8 +1,27 @@
-__pycache__/
-*.pyc
-*.pyo
+# Binaries
 *.apk
+*.so
+*.jar
+*.xz
+
+# Folders
 apktool_out/
-decompiled/
 jadx_out/
-reverse_inventory.py
+decompiled/
+.gemini/
+.idea/
+.vscode/
+__pycache__/
+
+# Logs & Temp
+*.log
+*.tmp
+*.bak
+adb.exe
+platform-tools/
+
+# User Data
+output/
+v67_extracted_data.json
+decrypted_strings.json
+*.keystore
